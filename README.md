@@ -2,7 +2,7 @@
 
 A deployable template for a ReAct (Reasoning + Acting) Agent based on the Agentic AI for Beginners course. This template includes a working ReAct agent implementation with a simple web interface.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://join.netlify.com/bxmfy8pxswau-w6zrwt)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/iamdgarcia/react-agent-blueprint&?utm_medium=referral&utm_source=partnerstack&source=8mntz9z1uxdi-96ld6)
 
 ## What is a ReAct Agent?
 
@@ -46,7 +46,7 @@ To run this blueprint locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/react-agent-blueprint.git
+git clone https://github.com/iamdgarcia/react-agent-blueprint.git
 cd react-agent-blueprint
 
 # Install dependencies
@@ -101,4 +101,5 @@ For issues or questions:
 - Review the original ReAct agent implementation concepts
 
 ---
+
 *Built with ❤️ for The Learning Curve community. Deploy using your affiliate link to support continued development of free AI education resources.*
