@@ -32,6 +32,79 @@ The ReAct agent follows this loop:
 3. It **observes** the results
 4. It repeats until it has enough information to answer
 
+## Accessing the API Directly
+
+After deployment, you can access the ReAct agent API directly at:
+```
+https://YOUR-SITE-NAME.netlify.app/.netlify/functions/react-agent
+```
+
+Replace `YOUR-SITE-NAME` with your actual Netlify subdomain (found in your Netlify site dashboard).
+
+### API Endpoint
+- **URL**: `https://YOUR-SITE-NAME.netlify.app/.netlify/functions/react-agent`
+- **Method**: `POST`
+- **Content-Type**: `application/json`
+
+### Request Format
+```json
+{
+  "message": "Your question or command here",
+  "history": [
+    {"role": "user", "content": "previous message"},
+    {"role": "assistant", "content": "previous response"}
+  ]
+}
+```
+
+### Example Requests
+
+**Using curl:**
+```bash
+curl -X POST https://your-site-name.netlify.app/.netlify/functions/react-agent \
+  -H "Content-Type: application/json" \
+  -d '{
+    "message": "What is the weather in Paris?",
+    "history": []
+  }'
+```
+
+**Using JavaScript/Fetch:**
+```javascript
+fetch('https://your-site-name.netlify.app/.netlify/functions/react-agent', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    message: "Calculate 25 * 4",
+    history: []
+  })
+})
+.then(response => response.json())
+.then(data => {
+  console.log('Response:', data.response);
+  console.log('Reasoning steps:', data.reasoning_steps);
+});
+```
+
+### Response Format
+The API returns:
+```json
+{
+  "response": "The agent's final answer",
+  "reasoning_steps": [
+    {"type": "reason", "content": "Explanation of reasoning"},
+    {"type": "act", "content": "Action taken"},
+    {"type": "observe", "content": "Result of action"}
+  ],
+  "history": [
+    {"role": "user", "content": "original message"},
+    {"role": "assistant", "content": "agent response"}
+  ]
+}
+```
+
 ## Included Implementation
 
 - Python-based ReAct agent logic
